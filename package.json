@@ -8,8 +8,9 @@
     "type": "git"
   },
   "version": "1.0.3",
-  "main": "dist/use-navigator-online.js",
-  "module": "dist/use-navigator-online.mjs",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "microbundle",
     "fmt": "prettier --write 'src/**/*.js'",
@@ -36,6 +37,8 @@
   "publishConfig": {
     "access": "public"
   },
+  "main": "dist/use-navigator-online.js",
+  "module": "dist/use-navigator-online.mjs",
   "source": "src/index.js",
   "umd:main": "dist/use-navigator-online.umd.js"
 }
