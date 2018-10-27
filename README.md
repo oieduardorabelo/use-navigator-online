@@ -6,7 +6,7 @@ React Hooks to detect when your browser is online/offline using [`window.navigat
 
 In your app, you can add:
 
-```
+```javascript
 function App() {
   let details = useNavigatorOnline(options)
   ...
@@ -28,7 +28,7 @@ function App() {
 
 Using `isOnline` and `isOffline` flags:
 
-```
+```javascript
 function App() {
   let { isOnline, isOffline } = useNavigatorOnline()
 
@@ -43,7 +43,7 @@ function App() {
 
 Using default `status`:
 
-```
+```javascript
 function App() {
   // will toggle between "online" and "offline"
   let { status } = useNavigatorOnline()
@@ -58,7 +58,7 @@ function App() {
 
 Custom values for `status` with `whenOnline` and `whenOffline`:
 
-```
+```javascript
 function App() {
   // will toggle between "online" and "offline"
   let { status } = useNavigatorOnline({
