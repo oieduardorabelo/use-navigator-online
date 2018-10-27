@@ -7,7 +7,7 @@
     "url": "https://github.com/oieduardorabelo/use-navigator-online",
     "type": "git"
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/use-navigator-online.js",
   "module": "dist/use-navigator-online.mjs",
   "scripts": {
