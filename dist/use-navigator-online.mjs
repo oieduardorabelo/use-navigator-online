@@ -1,2 +1,0 @@
-import{useEffect as n,useState as e}from"react";var i={whenOnline:"online",whenOffline:"offline"};export default function(o){void 0===o&&(o=i);var t=o.whenOnline,r=o.whenOffline,f=e(window.navigator.onLine),w=f[0],l=f[1];n(function(){function n(n){l(window.navigator.onLine)}return window.addEventListener("online",n),window.addEventListener("offline",n),function(){window.removeEventListener("online",n),window.removeEventListener("offline",n)}},[]);var a=!0===w;return{status:a?t:r,isOnline:a,isOffline:!1===w}}
-//# sourceMappingURL=use-navigator-online.mjs.map
