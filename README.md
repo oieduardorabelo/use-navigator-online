@@ -13,7 +13,7 @@ yarn add @oieduardorabelo/use-navigator-online
 In your app, you can add:
 
 ```javascript
-import useNavigatorOnline from '@oieduardorabelo/useNavigatorOnline';
+import useNavigatorOnline from '@oieduardorabelo/user-navigator-online';
 
 function App() {
   let details = useNavigatorOnline(options)
@@ -37,7 +37,7 @@ function App() {
 Using `isOnline` and `isOffline` flags:
 
 ```javascript
-import useNavigatorOnline from '@oieduardorabelo/useNavigatorOnline';
+import useNavigatorOnline from '@oieduardorabelo/user-navigator-online';
 
 function App() {
   let { isOnline, isOffline } = useNavigatorOnline()
@@ -54,7 +54,7 @@ function App() {
 Using default `status`:
 
 ```javascript
-import useNavigatorOnline from '@oieduardorabelo/useNavigatorOnline';
+import useNavigatorOnline from '@oieduardorabelo/user-navigator-online';
 
 function App() {
   // will toggle between "online" and "offline"
@@ -71,7 +71,7 @@ function App() {
 Custom values for `status` with `whenOnline` and `whenOffline`:
 
 ```javascript
-import useNavigatorOnline from '@oieduardorabelo/useNavigatorOnline';
+import useNavigatorOnline from '@oieduardorabelo/user-navigator-online';
 
 function App() {
   // you can pass any React children in "whenOnline" and "whenOffline"
