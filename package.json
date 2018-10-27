@@ -1,5 +1,6 @@
 {
   "name": "@oieduardorabelo/use-navigator-online",
+  "description": "React Hooks to detect when your browser is online/offline.",
   "license": "MIT",
   "author": "Eduardo Rabelo <oieduardorabelo@gmail.com> (https://github.com/oieduardorabelo)",
   "version": "1.0.0",
@@ -17,8 +18,8 @@
     "prettier": "^1.14.3",
     "prettier-package-json": "^2.0.1"
   },
-  "source": "src/index.js",
-  "umd:main": "dist/use-navigator-online.umd.js",
   "main": "dist/use-navigator-online.js",
-  "module": "dist/use-navigator-online.mjs"
+  "module": "dist/use-navigator-online.mjs",
+  "source": "src/index.js",
+  "umd:main": "dist/use-navigator-online.umd.js"
 }

@@ -1,6 +1,6 @@
 # React Hooks: useNavigatorOnline
 
-A small package to detect when your browser is online/offline using [`window.navigator.onLine` API](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine).
+React Hooks to detect when your browser is online/offline using [`window.navigator.onLine` API](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine).
 
 ## API Explained
 
