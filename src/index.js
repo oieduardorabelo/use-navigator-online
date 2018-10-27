@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 
-function useNavigatorOnline({
-  whenOnline = "online",
-  whenOffline = "offline"
-}) {
+let state = {
+  whenOnline: "online",
+  whenOffline: "offline"
+};
+
+function useNavigatorOnline({ whenOnline, whenOffline } = state) {
   let [value, setValue] = useState(window.navigator.onLine);
 
   useEffect(() => {
