@@ -1,0 +1,2 @@
+var n=require("react");module.exports=function(e){var i=e.whenOnline;void 0===i&&(i="online");var o=e.whenOffline;void 0===o&&(o="offline");var t=n.useState(window.navigator.onLine),r=t[0],f=t[1];n.useEffect(function(){function n(n){f(window.navigator.onLine)}return window.addEventListener("online",n),window.addEventListener("offline",n),function(){window.removeEventListener("online",n),window.removeEventListener("offline",n)}},[]);var v=!0===r;return{status:v?i:o,isOnline:v,isOffline:!1===r}};
+//# sourceMappingURL=use-navigator-online.js.map

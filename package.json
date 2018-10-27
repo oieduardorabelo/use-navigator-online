@@ -1,0 +1,24 @@
+{
+  "name": "@oieduardorabelo/use-navigator-online",
+  "license": "MIT",
+  "author": "Eduardo Rabelo <oieduardorabelo@gmail.com> (https://github.com/oieduardorabelo)",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "microbundle",
+    "fmt": "prettier --write 'src/**/*.js'",
+    "fmt:p": "prettier-package-json --write"
+  },
+  "peerDependencies": {
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "^16.7.0-alpha.0"
+  },
+  "devDependencies": {
+    "microbundle": "^0.7.0",
+    "prettier": "^1.14.3",
+    "prettier-package-json": "^2.0.1"
+  },
+  "source": "src/index.js",
+  "umd:main": "dist/use-navigator-online.umd.js",
+  "main": "dist/use-navigator-online.js",
+  "module": "dist/use-navigator-online.mjs"
+}
