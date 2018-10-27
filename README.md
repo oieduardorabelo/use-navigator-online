@@ -74,7 +74,7 @@ Custom values for `status` with `whenOnline` and `whenOffline`:
 import useNavigatorOnline from '@oieduardorabelo/useNavigatorOnline';
 
 function App() {
-  // will toggle between "online" and "offline"
+  // you can pass any React children in "whenOnline" and "whenOffline"
   let { status } = useNavigatorOnline({
     whenOnline: <h1>WE ARE ONLINE!</h1>,
     whenOffline: <h4>Damn, offline :(</h4>
