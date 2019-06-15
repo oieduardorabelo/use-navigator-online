@@ -1,4 +1,4 @@
-# @oieduardorabelo/user-navigator-online
+# @oieduardorabelo/use-navigator-online
 
 React Hooks to detect when your browser is online/offline using [`window.navigator.onLine` API](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine).
 
@@ -13,7 +13,7 @@ yarn add @oieduardorabelo/use-navigator-online
 In your app, you can add:
 
 ```javascript
-import useNavigatorOnline from '@oieduardorabelo/user-navigator-online';
+import useNavigatorOnline from '@oieduardorabelo/use-navigator-online';
 
 function App() {
   let details = useNavigatorOnline(options)
@@ -37,52 +37,46 @@ function App() {
 Using `isOnline` and `isOffline` flags:
 
 ```javascript
-import useNavigatorOnline from '@oieduardorabelo/user-navigator-online';
+import useNavigatorOnline from "@oieduardorabelo/use-navigator-online";
 
 function App() {
-  let { isOnline, isOffline } = useNavigatorOnline()
+  let { isOnline, isOffline } = useNavigatorOnline();
 
   return (
     <div>
       {isOnline && <span>We are online!</span>}
       {isOffline && <span>We are offline!</span>}
     </div>
-  )
+  );
 }
 ```
 
 Using default `status`:
 
 ```javascript
-import useNavigatorOnline from '@oieduardorabelo/user-navigator-online';
+import useNavigatorOnline from "@oieduardorabelo/use-navigator-online";
 
 function App() {
   // will toggle between "online" and "offline"
-  let { status } = useNavigatorOnline()
+  let { status } = useNavigatorOnline();
 
-  return (
-    <div>
-      Browser now is {status}!
-    </div>
-  )
+  return <div>Browser now is {status}!</div>;
 }
 ```
 
 Custom values for `status` with `whenOnline` and `whenOffline`:
 
 ```javascript
-import useNavigatorOnline from '@oieduardorabelo/user-navigator-online';
+import useNavigatorOnline from "@oieduardorabelo/use-navigator-online";
 
 function App() {
   // you can pass any React children in "whenOnline" and "whenOffline"
   let { status } = useNavigatorOnline({
     whenOnline: <h1>WE ARE ONLINE!</h1>,
     whenOffline: <h4>Damn, offline :(</h4>
-  })
+  });
 
-  return (
-    <div>{status}</div>
-  )
+  return <div>{status}</div>;
 }
 ```
 

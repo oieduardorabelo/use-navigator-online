@@ -7,7 +7,7 @@
     "url": "https://github.com/oieduardorabelo/use-navigator-online",
     "type": "git"
   },
-  "version": "1.0.4",
+  "version": "1.0.5",
   "files": [
     "dist"
   ],
@@ -17,13 +17,13 @@
     "fmt:p": "prettier-package-json --write"
   },
   "dependencies": {
-    "react": "^16.7.0-alpha.0",
-    "react-dom": "^16.7.0-alpha.0"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "microbundle": "^0.7.0",
-    "prettier": "^1.14.3",
-    "prettier-package-json": "^2.0.1"
+    "microbundle": "^0.11.0",
+    "prettier": "^1.18.2",
+    "prettier-package-json": "^2.1.0"
   },
   "keywords": [
     "browser",
