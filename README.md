@@ -8,6 +8,14 @@ To install it:
 yarn add @oieduardorabelo/use-navigator-online
 ```
 
+## Online Demo
+
+An online demo is available at CodeSandbox:
+
+- https://codesandbox.io/s/keen-villani-1xy56
+
+If you've any issues, **open an issue with a CodeSandbox link** with your issue
+
 ## API Explained
 
 In your app, you can add:
