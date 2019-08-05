@@ -8,11 +8,11 @@ To install it:
 yarn add @oieduardorabelo/use-navigator-online
 ```
 
-## Online Demo
+## Example
 
 An online demo is available at CodeSandbox:
 
-- https://codesandbox.io/s/keen-villani-1xy56
+- **Live demo:** https://codesandbox.io/embed/live-demo-use-navigator-online-1xy56
 
 If you've any issues, **open an issue with a CodeSandbox link** with your issue
 
