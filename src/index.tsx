@@ -1,24 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 let state = {
-  whenOnline: "online",
-  whenOffline: "offline"
+  whenOnline: 'online',
+  whenOffline: 'offline',
 };
 
 function useNavigatorOnline({ whenOnline, whenOffline } = state) {
   let [value, setValue] = useState(window.navigator.onLine);
 
   useEffect(() => {
-    function handleOnlineStatus(event) {
+    function handleOnlineStatus() {
       setValue(window.navigator.onLine);
     }
 
-    window.addEventListener("online", handleOnlineStatus);
-    window.addEventListener("offline", handleOnlineStatus);
+    window.addEventListener('online', handleOnlineStatus);
+    window.addEventListener('offline', handleOnlineStatus);
 
     return () => {
-      window.removeEventListener("online", handleOnlineStatus);
-      window.removeEventListener("offline", handleOnlineStatus);
+      window.removeEventListener('online', handleOnlineStatus);
+      window.removeEventListener('offline', handleOnlineStatus);
     };
   }, []);
 
@@ -29,4 +29,4 @@ function useNavigatorOnline({ whenOnline, whenOffline } = state) {
   return { status, isOnline, isOffline };
 }
 
-export default useNavigatorOnline;
+export { useNavigatorOnline };

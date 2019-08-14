@@ -7,23 +7,35 @@
     "url": "https://github.com/oieduardorabelo/use-navigator-online",
     "type": "git"
   },
-  "version": "1.0.5",
+  "version": "2.0.0",
+  "main": "dist/index.js",
+  "module": "dist/use-navigator-online.esm.js",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "microbundle",
-    "fmt": "prettier --write 'src/**/*.js'",
-    "fmt:p": "prettier-package-json --write"
+    "build": "tsdx build",
+    "fmt:p": "prettier-package-json --write",
+    "start": "tsdx watch",
+    "test": "tsdx test --env=jsdom"
   },
-  "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+  "typings": "dist/index.d.ts",
+  "peerDependencies": {
+    "react": ">=16"
   },
   "devDependencies": {
-    "microbundle": "^0.11.0",
+    "@types/jest": "^24.0.17",
+    "@types/react": "^16.9.1",
+    "@types/react-dom": "^16.8.5",
+    "husky": "^3.0.3",
     "prettier": "^1.18.2",
-    "prettier-package-json": "^2.1.0"
+    "prettier-package-json": "^2.1.0",
+    "pretty-quick": "^1.11.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "tsdx": "^0.7.2",
+    "tslib": "^1.10.0",
+    "typescript": "^3.5.3"
   },
   "keywords": [
     "browser",
@@ -37,8 +49,15 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "dist/use-navigator-online.js",
-  "module": "dist/use-navigator-online.mjs",
-  "source": "src/index.js",
-  "umd:main": "dist/use-navigator-online.umd.js"
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
 }
