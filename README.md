@@ -21,7 +21,7 @@ If you've any issues, **open an issue with a CodeSandbox link** with your issue
 In your app, you can add:
 
 ```javascript
-import useNavigatorOnline from '@oieduardorabelo/use-navigator-online';
+import { useNavigatorOnline } from '@oieduardorabelo/use-navigator-online';
 
 function App() {
   let details = useNavigatorOnline(options)
@@ -45,7 +45,7 @@ function App() {
 Using `isOnline` and `isOffline` flags:
 
 ```javascript
-import useNavigatorOnline from "@oieduardorabelo/use-navigator-online";
+import { useNavigatorOnline } from '@oieduardorabelo/use-navigator-online';
 
 function App() {
   let { isOnline, isOffline } = useNavigatorOnline();
@@ -62,7 +62,7 @@ function App() {
 Using default `status`:
 
 ```javascript
-import useNavigatorOnline from "@oieduardorabelo/use-navigator-online";
+import { useNavigatorOnline } from '@oieduardorabelo/use-navigator-online';
 
 function App() {
   // will toggle between "online" and "offline"
@@ -75,13 +75,13 @@ function App() {
 Custom values for `status` with `whenOnline` and `whenOffline`:
 
 ```javascript
-import useNavigatorOnline from "@oieduardorabelo/use-navigator-online";
+import { useNavigatorOnline } from '@oieduardorabelo/use-navigator-online';
 
 function App() {
   // you can pass any React children in "whenOnline" and "whenOffline"
   let { status } = useNavigatorOnline({
     whenOnline: <h1>WE ARE ONLINE!</h1>,
-    whenOffline: <h4>Damn, offline :(</h4>
+    whenOffline: <h4>Damn, offline :(</h4>,
   });
 
   return <div>{status}</div>;
