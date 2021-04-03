@@ -7,7 +7,7 @@
     "url": "https://github.com/oieduardorabelo/use-navigator-online",
     "type": "git"
   },
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "dist/index.js",
   "module": "dist/use-navigator-online.esm.js",
   "files": [
@@ -28,10 +28,8 @@
     "@types/jest": "26.0.22",
     "@types/react": "17.0.3",
     "@types/react-dom": "17.0.3",
-    "husky": "6.0.0",
     "prettier": "2.2.1",
     "prettier-package-json": "2.1.3",
-    "pretty-quick": "3.1.0",
     "tsdx": "0.14.1",
     "tslib": "2.1.0",
     "typescript": "4.2.3"
@@ -47,11 +45,6 @@
   ],
   "publishConfig": {
     "access": "public"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   },
   "prettier": {
     "printWidth": 80,
