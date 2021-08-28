@@ -89,7 +89,7 @@ function App() {
 }
 ```
 
-No extra configuration to use it on SSR:
+No extra configuration is needed to use it on SSR:
 
 ```javascript
 import { useNavigatorOnline } from '@oieduardorabelo/use-navigator-online';
@@ -101,16 +101,21 @@ function App() {
 }
 ```
 
-Initialize offline-first:
+You can initialize your application offline-first. This **will not re-render** your application in "online" state because `window` will not trigger an "online" change event when the page loads.
+
+You need to manually trigger a "online" event to re-render your application:
 
 ```javascript
 import { useNavigatorOnline } from '@oieduardorabelo/use-navigator-online';
 
 function App() {
-  // you can pass any React children in "whenOnline" and "whenOffline"
   let { status } = useNavigatorOnline({
     startOnline: false
   });
+
+  useEffect(() => {
+    window.dispatchEvent(new Event("online"))
+  }, [])
 
   return <div>{status}</div>;
 }
