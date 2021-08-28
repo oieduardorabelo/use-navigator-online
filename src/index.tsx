@@ -1,12 +1,20 @@
 import { useEffect, useState } from 'react';
 
-let state = {
+interface IState {
+  whenOnline?: string;
+  whenOffline?: string;
+  startOnline?: boolean;
+}
+
+let defaultState: IState = {
   whenOnline: 'online',
   whenOffline: 'offline',
+  startOnline: true,
 };
 
-function useNavigatorOnline({ whenOnline, whenOffline } = state) {
-  let [value, setValue] = useState(window.navigator.onLine);
+function useNavigatorOnline(state: IState = {}) {
+  let { whenOnline, whenOffline, startOnline } = { ...defaultState, ...state };
+  let [value, setValue] = useState(startOnline);
 
   useEffect(() => {
     function handleOnlineStatus() {

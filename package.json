@@ -17,7 +17,8 @@
     "build": "tsdx build",
     "fmt:p": "prettier-package-json --write",
     "start": "tsdx watch",
-    "test": "tsdx test --env=jsdom"
+    "test": "tsdx test --env=jsdom",
+    "test:w": "tsdx test --env=jsdom --watchAll"
   },
   "typings": "dist/index.d.ts",
   "peerDependencies": {
@@ -25,6 +26,8 @@
     "react-dom": ">=16.8 - 17.x"
   },
   "devDependencies": {
+    "@testing-library/dom": "8.2.0",
+    "@testing-library/react-hooks": "7.0.1",
     "@types/jest": "27.0.1",
     "@types/react": "17.0.19",
     "@types/react-dom": "17.0.9",
@@ -47,7 +50,7 @@
     "access": "public"
   },
   "prettier": {
-    "printWidth": 80,
+    "printWidth": 120,
     "semi": true,
     "singleQuote": true,
     "trailingComma": "es5"

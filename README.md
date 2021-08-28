@@ -39,6 +39,7 @@ function App() {
 
 - `options.whenOnline`: Can be any valid React children. It will replace the `String` returned in `details.status` when online.
 - `options.whenOffline`: Can be any valid React children. It will replace the `String` returned in `details.status` when offline.
+- `options.startOnline`: Adding Support for SSR, a boolean value to determine which state it initializes. Defaults to `true`.
 
 ## Examples
 
@@ -82,6 +83,33 @@ function App() {
   let { status } = useNavigatorOnline({
     whenOnline: <h1>WE ARE ONLINE!</h1>,
     whenOffline: <h4>Damn, offline :(</h4>,
+  });
+
+  return <div>{status}</div>;
+}
+```
+
+No extra configuration to use it on SSR:
+
+```javascript
+import { useNavigatorOnline } from '@oieduardorabelo/use-navigator-online';
+
+function App() {
+  let { status } = useNavigatorOnline();
+
+  return <div>{status}</div>;
+}
+```
+
+Initialize offline-first:
+
+```javascript
+import { useNavigatorOnline } from '@oieduardorabelo/use-navigator-online';
+
+function App() {
+  // you can pass any React children in "whenOnline" and "whenOffline"
+  let { status } = useNavigatorOnline({
+    startOnline: false
   });
 
   return <div>{status}</div>;
