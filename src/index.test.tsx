@@ -2,7 +2,9 @@ import { renderHook, act } from '@testing-library/react-hooks';
 import { fireEvent, createEvent } from '@testing-library/dom';
 import { useNavigatorOnline } from './';
 
-overwriteGlobalNavigatorOnline();
+beforeEach(() => {
+  overwriteGlobalNavigatorOnline();
+})
 
 test('use default `window.navigator`', () => {
   let { result } = renderHook(() => useNavigatorOnline());
@@ -36,8 +38,16 @@ test('renders online-first with `startOnline: true`', () => {
   expect(result.current.isOffline).toBe(true);
 });
 
-test('renders offline-first with `startOnline: false`', () => {
-  let { result } = renderHook(() => useNavigatorOnline({ startOnline: false }));
+test('toggles offline/online', () => {
+  let { result } = renderHook(() => useNavigatorOnline());
+
+  expect(result.current.status).toBe('online');
+  expect(result.current.isOnline).toBe(true);
+  expect(result.current.isOffline).toBe(false);
+
+  act(() => {
+    fireEvent(window, createEvent('offline', window, {}));
+  });
 
   expect(result.current.status).toBe('offline');
   expect(result.current.isOnline).toBe(false);
@@ -51,6 +61,44 @@ test('renders offline-first with `startOnline: false`', () => {
   expect(result.current.isOnline).toBe(true);
   expect(result.current.isOffline).toBe(false);
 });
+
+describe("syncs with window.navigator.onLine when rendering with different 'startOnline' value",() => {
+  test('when window.navigator.onLine value is "true"', () => {
+    let { result } = renderHook(() => useNavigatorOnline({ startOnline: false }));
+
+    expect(result.current.status).toBe('online');
+    expect(result.current.isOnline).toBe(true);
+    expect(result.current.isOffline).toBe(false);
+
+    act(() => {
+      fireEvent(window, createEvent('offline', window, {}));
+    });
+
+    expect(result.current.status).toBe('offline');
+    expect(result.current.isOnline).toBe(false);
+    expect(result.current.isOffline).toBe(true);
+  });
+
+  test('when window.navigator.onLine value is "false"', () => {
+    act(() => {
+      fireEvent(window, createEvent('offline', window, {}));
+    });
+
+    let { result } = renderHook(() => useNavigatorOnline({ startOnline: true }));
+
+    expect(result.current.status).toBe('offline');
+    expect(result.current.isOnline).toBe(false);
+    expect(result.current.isOffline).toBe(true);
+
+    act(() => {
+      fireEvent(window, createEvent('online', window, {}));
+    });
+
+    expect(result.current.status).toBe('online');
+    expect(result.current.isOnline).toBe(true);
+    expect(result.current.isOffline).toBe(false);
+  });
+})
 
 function overwriteGlobalNavigatorOnline() {
   let online = true;

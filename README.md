@@ -39,7 +39,7 @@ function App() {
 
 - `options.whenOnline`: Can be any valid React children. It will replace the `String` returned in `details.status` when online.
 - `options.whenOffline`: Can be any valid React children. It will replace the `String` returned in `details.status` when offline.
-- `options.startOnline`: Adding Support for SSR, a boolean value to determine which state it initializes. Defaults to `true`.
+- `options.startOnline`: To support SSR, you can control the initial rendering mode using this option. It is a boolean value to determine which state your application should use first: `true` for "online-first" or `false` for "offline-first". Defaults to `true`/online-first. The value will be synced with `window.navigator.onLine` inside an `useEffect` when your application is rendered in the browser.
 
 ## Examples
 
@@ -101,9 +101,7 @@ function App() {
 }
 ```
 
-You can initialize your application offline-first. This **will not re-render** your application in "online" state because `window` will not trigger an "online" change event when the page loads.
-
-You need to manually trigger a "online" event to re-render your application:
+You can initialize your application offline-first. This **will sync** with `window.navigator.onLine` when your application starts, using a `useEffect`. Trigerring a re-render of your application.
 
 ```javascript
 import { useNavigatorOnline } from '@oieduardorabelo/use-navigator-online';
@@ -112,10 +110,6 @@ function App() {
   let { status } = useNavigatorOnline({
     startOnline: false
   });
-
-  useEffect(() => {
-    window.dispatchEvent(new Event("online"))
-  }, [])
 
   return <div>{status}</div>;
 }

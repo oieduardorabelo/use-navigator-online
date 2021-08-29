@@ -17,6 +17,11 @@ function useNavigatorOnline(state: IState = {}) {
   let [value, setValue] = useState(startOnline);
 
   useEffect(() => {
+    if (window.navigator.onLine !== value) {
+      setValue(window.navigator.onLine);
+      return;
+    }
+
     function handleOnlineStatus() {
       setValue(window.navigator.onLine);
     }
@@ -28,7 +33,7 @@ function useNavigatorOnline(state: IState = {}) {
       window.removeEventListener('online', handleOnlineStatus);
       window.removeEventListener('offline', handleOnlineStatus);
     };
-  }, []);
+  }, [value, setValue]);
 
   let isOnline = value === true;
   let isOffline = value === false;
