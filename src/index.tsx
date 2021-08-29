@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface IState {
-  whenOnline?: string;
-  whenOffline?: string;
+  whenOnline?: React.ReactNode;
+  whenOffline?: React.ReactNode;
   startOnline?: boolean;
 }
 

@@ -1,10 +1,11 @@
+import * as React from 'react';
 import { renderHook, act } from '@testing-library/react-hooks';
 import { fireEvent, createEvent } from '@testing-library/dom';
 import { useNavigatorOnline } from './';
 
 beforeEach(() => {
   overwriteGlobalNavigatorOnline();
-})
+});
 
 test('use default `window.navigator`', () => {
   let { result } = renderHook(() => useNavigatorOnline());
@@ -62,7 +63,39 @@ test('toggles offline/online', () => {
   expect(result.current.isOffline).toBe(false);
 });
 
-describe("syncs with window.navigator.onLine when rendering with different 'startOnline' value",() => {
+test('custom react element for "whenOnline" and "whenOffline"', () => {
+  let { result } = renderHook(() =>
+    useNavigatorOnline({ whenOffline: <h2>Hi Offline</h2>, whenOnline: <h1>Hi Online</h1> })
+  );
+
+  // @ts-ignore
+  expect(result.current.status.type).toBe('h1');
+  // @ts-ignore
+  expect(result.current.status.props.children).toBe('Hi Online');
+
+  act(() => {
+    fireEvent(window, createEvent('offline', window, {}));
+  });
+
+  // @ts-ignore
+  expect(result.current.status.type).toBe('h2');
+  // @ts-ignore
+  expect(result.current.status.props.children).toBe('Hi Offline');
+});
+
+test('custom string/number for "whenOnline" and "whenOffline"', () => {
+  let { result } = renderHook(() => useNavigatorOnline({ whenOffline: 'Hi Offline', whenOnline: 4444 }));
+
+  expect(result.current.status).toBe(4444);
+
+  act(() => {
+    fireEvent(window, createEvent('offline', window, {}));
+  });
+
+  expect(result.current.status).toBe('Hi Offline');
+});
+
+describe("syncs with window.navigator.onLine when rendering with different 'startOnline' value", () => {
   test('when window.navigator.onLine value is "true"', () => {
     let { result } = renderHook(() => useNavigatorOnline({ startOnline: false }));
 
@@ -98,7 +131,7 @@ describe("syncs with window.navigator.onLine when rendering with different 'star
     expect(result.current.isOnline).toBe(true);
     expect(result.current.isOffline).toBe(false);
   });
-})
+});
 
 function overwriteGlobalNavigatorOnline() {
   let online = true;
