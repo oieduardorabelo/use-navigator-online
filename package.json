@@ -22,8 +22,8 @@
   },
   "typings": "dist/index.d.ts",
   "peerDependencies": {
-    "react": ">=16.8 - 17.x",
-    "react-dom": ">=16.8 - 17.x"
+    "react": "16.8 - 18",
+    "react-dom": "16.8 - 18"
   },
   "devDependencies": {
     "@testing-library/dom": "8.13.0",
